@@ -1,0 +1,12 @@
+<div style="margin: 20px;">
+  Username: <input type="text" [(ngModel)]="userName">
+</div>
+<div style="margin: 20px;">
+  Password: <input type="password" [(ngModel)]="password">
+</div>
+<div style="margin: 20px;">
+  <button type="button" (click)="login()">LOGIN</button>
+</div>
+<div style="margin: 20px;" *ngIf="message != ''">
+  <h2 >{{message}}</h2>
+</div>

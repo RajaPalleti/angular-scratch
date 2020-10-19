@@ -1,0 +1,29 @@
+<div>
+  <p>Employee Id : <input type="text" [(ngModel)]="empId" placeholder="Employee Id"></p>
+  <p>Employee name : <input type="text" [(ngModel)]="empName" placeholder="Employee Name"></p>
+  <p>Employee Salary : <input type="text" [(ngModel)]="empSalary" placeholder="Employee Salary"></p>
+  <p>Employee image : <input type="file" [(ngModel)]="empImage" placeholder="Employee Image" (change)="fileSelected($event)"></p>
+  <p><img [src]="imgUrl" alt=""></p>
+  <p><button type="button" (click)="addEmployee()">{{submitLabel}}</button></p>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let emp of empList;let i = index;">
+      <td>{{emp.empId}}</td>
+      <td>{{emp.empName}}</td>
+      <td>{{emp.empSalary}}</td>
+      <td >
+        <a href="javascript:void(0)" (click)="editEmployee(emp)">Edit</a> 
+        <a href="javascript:void(0)" (click)="deleteEmployee(i)">Delete</a>
+      </td>
+      
+    </tr>
+  </tbody>

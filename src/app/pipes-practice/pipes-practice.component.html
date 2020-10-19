@@ -1,0 +1,64 @@
+<div class="p-5">
+    <p>Pipes samples</p>
+    <p>Employee details</p>
+    <p>{{employeedetails.name | titlecase}}</p>
+    <p>{{employeedetails.email | uppercase}}</p>
+    <p>{{employeedetails.course | lowercase}}</p>
+    <p>{{employeedetails.startDate | date: 'dd/MM/yyy'}}</p>
+    <p>{{employeedetails.fee | currency: 'INR'}}</p>
+</div>
+<!-- <h3>this is for Range pipe</h3>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let head of tableHeaders">{{head}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersData ">
+          <ng-template ngFor let-u [ngForOf]="user | keyvalue: orderObject">
+            <td *ngIf="u.key != 'address'">{{u.value}}</td>
+            <td *ngIf="u.key == 'address'">{{u.value.city}}</td>
+            <td *ngIf="u.key == 'address'">{{u.value.pincode}}</td>
+          </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<h3>this is for keyvalue pipe</h3>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let head of tableHeaders">{{head}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersData ">
+          <ng-template ngFor let-u [ngForOf]="user | keyvalue: orderObject">
+            <td *ngIf="u.key != 'address'">{{u.value}}</td>
+            <td *ngIf="u.key === 'gender'">{{u.value | gender}}</td>
+            <td *ngIf="u.key == 'address'">{{u.value.city}}</td>
+            <td *ngIf="u.key == 'address'">{{u.value.pincode}}</td>
+          </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- this is for slice pipe -->
+  <ul class="bg-primary" style="color: #fff;margin: 20px;padding: 15px;">
+    <li *ngFor="let user of usersData | slice: startIndex:endIndex">
+      <div>Name: {{user.name}}</div>
+      <div>Email: {{user.email}}</div>
+      <div>Gender: {{user.gender | gender}}</div>
+      <div>City: {{user.address.city}}</div>
+      <div>Pincode: {{user.address.pincode}}</div>
+      <div>Performance: {{user.grade | grade: user.grade}}</div>
+    </li>
+  </ul>
+  <div style="margin: 20px;text-align: center;">
+    <button class="btn btn-outline-primary" (click)="previousUser()">Previous</button>
+    <button class="btn btn-outline-primary ml-2" (click)="nextUser()">Next</button>
+  </div>

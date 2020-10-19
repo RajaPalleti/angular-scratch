@@ -1,0 +1,53 @@
+<div *ngFor="let emp of employeeList | slice :num:num+1" style="padding: 10px; border-radius: 10px;background-color: deepskyblue; color: white;">
+  <p>Name : <b>{{emp.Name}}</b></p>
+  <p>City : <b>{{emp.City }}</b></p>
+  <p>Country : <b>{{emp.Country}}</b></p>
+  <p>Currency : <b>{{emp.Currency}}</b></p>
+</div>
+<div style="display: flex;justify-content: space-between; margin: 10px 0;">
+  <button (click)="onPrev()">Previous</button>
+  <button (click)="onNext()">Next</button>
+</div>
+<table border cellspacing='0' cellpadding='5'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Country</th>
+      <th>Currency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employeeList;">
+      <td>{{emp.Name | lowercase}}</td>
+      <td>{{emp.City }}</td>
+      <td>{{emp.Country}}</td>
+      <td>{{emp.Currency | currency: 'INR'}}</td>
+    </tr>
+  </tbody>
+</table>
+<!-- {{num}} -->
+
+employee name <input type="text" placeholder="enter name" [(ngModel)]="empName">
+employee salary <input type="text" placeholder="enter salary" [(ngModel)]="empSalary">
+employee number <input type="text" placeholder="enter number" [(ngModel)]="empNumber">
+
+<button (click)="addEmpRecord()">add</button>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let emp of employeeList2;let i = index;">
+      <td>{{emp.empName}}</td>
+      <td>{{emp.salary}}</td>
+      <td>{{emp.empNo}}</td>
+      <td (click)="deleteEmpRecord(i)">delete</td>
+      
+    </tr>
+  </tbody>

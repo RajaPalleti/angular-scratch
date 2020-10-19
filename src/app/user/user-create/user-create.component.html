@@ -1,0 +1,89 @@
+<div class="container">
+  <!-- <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm)">
+    <div class="form-group">
+      <label >First Name</label>
+      <input type="text" [(ngModel)]="fname" name="fn" #fn="ngModel" required>
+
+      <div class="required" *ngIf="userForm.invalid && fn.dirty">first name is required</div>
+    </div>
+    <div class="form-group">
+      <label >Last Name</label>
+      <input type="text" [(ngModel)]="lname" name="ln" #ln="ngModel" required>
+      <div class="required"  *ngIf="ln.invalid && ln.dirty">last name is required</div>
+    </div>
+    <div class="form-group">
+      <label >City</label>
+      <input type="text" [(ngModel)]="city" name="ct" #ct="ngModel" required>
+      <div class="required"  *ngIf="ct.invalid && ct.dirty">city is required</div>
+    </div>
+    <div class="form-group">
+      <button>Submit</button>
+    </div>
+  </form> -->
+  <form [formGroup] = "userForm" (ngSubmit)="onSubmit(userForm)">
+    <div class="row">
+      <div class="form-group col-6">
+        <label >Name</label>
+        <input class="form-control" type="text" formControlName="name">
+      </div>
+      <div class="form-group col-6">
+        <label >Designation</label>
+        <input class="form-control" type="text" formControlName="designation">
+      </div>
+      <div class="form-group col-6">
+        <label >Phone</label>
+        <input class="form-control" type="tel" formControlName="phone">
+      </div>
+      <div class="form-group col-6">
+        <label >Email</label>
+        <input class="form-control" type="email" formControlName="email">
+      </div>
+      <div class="form-group col-6">
+        <label >Age</label>
+        <input class="form-control" type="number" formControlName="age">
+      </div>
+      <div class="form-group col-6">
+        <label >Gender</label>
+        <div class="radio">
+          <label > <input class="form-control" type="radio" name="gender" value="male" formControlName="gender">Male</label>
+        </div>
+        <div class="radio">
+          <label > <input class="form-control" type="radio" name="gender" value="female" formControlName="gender"> feMale</label>
+        </div>
+      </div>
+      <div formGroupName="address" class="row">
+        <div class="form-group col-6">
+          <label >Country</label>
+          <select class="form-control" name="" id=""  formControlName="country">
+            <option value="" disabled>Select Country</option>
+            <option value="india">india</option>
+            <option value="usa">usa</option>
+            <option value="uk">uk</option>
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <label >State</label>
+          <select class="form-control" name="" id="" formControlName="state">
+            <option value="" disabled>Select State</option>
+            <option value="telangana">telangana</option>
+            <option value="ap">ap</option>
+            <option value="maharastra">maharastra</option>
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <label >City</label>
+          <select class="form-control" name="" id="" formControlName="city">
+            <option value="" disabled>Select city</option>
+            <option value="hyderabad">hyderabad</option>
+            <option value="vizag">vizag</option>
+            <option value="kodad">kodad</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group col-12">
+        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

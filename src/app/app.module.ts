@@ -3,14 +3,42 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { EmployeeComponent } from './employee/employee.component';
+import { BuiltInPipeComponent } from './built-in-pipe/built-in-pipe.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { TemplateDrivenComponent } from './template-driven/template-driven.component';
+import { UserModule } from './user/user.module';
+import { LoginComponent } from './login/login.component';
+import { BindingComponent } from './binding/binding.component';
+import { EventsComponent } from './events/events.component';
+import { CrudComponent } from './crud/crud.component';
+import { PipesPracticeComponent } from './pipes-practice/pipes-practice.component';
+import { ObserveComponent } from './observe/observe.component';
+import { GradePipe } from './pipes/grade.pipe';
+import { GenderPipe } from './pipes/gender.pipe';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmployeeComponent,
+    BuiltInPipeComponent,
+    TemplateDrivenComponent,
+    LoginComponent,
+    BindingComponent,
+    EventsComponent,
+    CrudComponent,
+    PipesPracticeComponent,
+    ObserveComponent,
+    GradePipe,
+    GenderPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    CommonModule,
+    UserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

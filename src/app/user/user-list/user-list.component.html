@@ -1,0 +1,65 @@
+<div class="container">
+  <h3>Users list <a (click)="addUser()"><i class="fa fa-plus-circle"></i></a></h3>
+  <div *ngIf="!isCreate">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>Designation</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Country</th>
+          <th>State</th>
+          <th>City</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let user of userList;">
+          <td>{{user.name}}</td>
+          <td>{{user.designation}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.gender}}</td>
+          <td>{{user.address.country}}</td>
+          <td>{{user.address.state}}</td>
+          <td>{{user.address.city}}</td>
+          <td>
+            <a class="fa fa-edit p-2" (click)="onEditRecord(user.id)"></a>
+            <a class="fa fa-trash p-2" (click)="onDeleteRecord(user.id)"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-user-create (ngFormCancel)="onCancel($event)" (ngFormSubmit)="onSubmit($event)"  *ngIf="showForm"></app-user-create>
+</div>
+
+
+
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let head of tableHeaders">{{head}}</th>
+        <th >Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersData">
+        <td *ngFor="let thvalue of tableHeaders">
+          <span>{{user[thvalue]}}</span>
+          <span *ngIf="user.address">{{user.address[thvalue]}}</span>
+        </td>
+        <td>
+          <a href="javascript:void(0)" (click)="onDelete(user)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

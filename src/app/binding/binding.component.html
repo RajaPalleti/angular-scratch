@@ -1,0 +1,23 @@
+<p>do you want to hide? <input type="checkbox" [(ngModel)]="showProduct" ></p>
+<div [hidden]="!showProduct">
+  Product details:
+  <p>Product Brand: {{productBrand}}</p>
+  <p>Product Model: {{productModel}}</p>
+  <p>Product Price: {{productPrice}}</p>
+</div>
+<div bind-hidden="!showProduct">
+  Product details:
+  <p>Product Brand: {{productBrand}}</p>
+  <p>Product Model: {{productModel}}</p>
+  <p>Product Price: {{productPrice}}</p>
+</div>
+<p>Product show: {{showProduct}}</p>
+<div>
+  Slect bird 
+<select id="" [(ngModel)]="selectedBird">
+  <option *ngFor="let bird of birdsList" [value]="bird">{{bird}}</option>
+</select>
+<div>
+  <img src="assets/images/{{selectedBird}}.jpg" alt="">
+</div>
+</div>
