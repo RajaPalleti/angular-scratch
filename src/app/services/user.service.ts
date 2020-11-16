@@ -16,7 +16,7 @@ export class UserService {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occured', error.error.message);
     } else {
-      console.error(`Backend returned code ${error.status} body was ${error.error}`)
+      console.error(`Backend returned code ${error.status} body was ${error.error}`);
     }
     return throwError('Something bad happend, please try again later');
   }

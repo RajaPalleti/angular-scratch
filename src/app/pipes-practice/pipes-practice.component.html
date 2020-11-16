@@ -7,25 +7,83 @@
     <p>{{employeedetails.startDate | date: 'dd/MM/yyy'}}</p>
     <p>{{employeedetails.fee | currency: 'INR'}}</p>
 </div>
-<!-- <h3>this is for Range pipe</h3>
+<h3>this is for orderBy pipe</h3>
 <div class="container">
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th *ngFor="let head of tableHeaders">{{head}}</th>
+        <th (click)="orderChange()">Name</th>
+        <th >Email</th>
+        <th >Salary</th>
+        <th >Join date</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of usersData ">
-          <ng-template ngFor let-u [ngForOf]="user | keyvalue: orderObject">
-            <td *ngIf="u.key != 'address'">{{u.value}}</td>
-            <td *ngIf="u.key == 'address'">{{u.value.city}}</td>
-            <td *ngIf="u.key == 'address'">{{u.value.pincode}}</td>
-          </ng-template>
+      <tr *ngFor="let user of usersData | orderBy : orderValue : orderType">
+        <td >{{user.name}}</td>
+        <td >{{user.email}}</td>
+        <td >{{user.salary}}</td>
+        <td >{{user.joinDate}}</td>
       </tr>
     </tbody>
   </table>
-</div> -->
+</div>
+
+<h3>this is for Search pipe</h3>
+<div class="container">
+  <input type="search" class="form-control" placeholder="Search" [(ngModel)]="isearch">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th >Name</th>
+        <th >Email</th>
+        <th >Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersData | search : isearch">
+        <td >{{user.name}}</td>
+        <td >{{user.email}}</td>
+        <td >{{user.salary}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3>this is for Range pipe</h3>
+<div>
+  min Value: <select class="form-control" name="" id="" [(ngModel)]="min">
+    <option value="10000">10000</option>
+    <option value="10000">20000</option>
+    <option value="10000">30000</option>
+    <option value="10000">40000</option>
+  </select>
+  max Value: <select class="form-control" name="" id="" [(ngModel)]="max">
+    <option value="35000">35000</option>
+    <option value="40000">40000</option>
+    <option value="50000">50000</option>
+    <option value="60000">60000</option>
+    <option value="70000">70000</option>
+    <option value="80000">80000</option>
+  </select>
+</div>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th >Name</th>
+        <th >Email</th>
+        <th >Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersData | range: min : max">
+        <td >{{user.name}}</td>
+        <td >{{user.email}}</td>
+        <td >{{user.salary}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <h3>this is for keyvalue pipe</h3>
 <div class="container">
@@ -36,7 +94,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of usersData ">
+      <tr *ngFor="let user of usersData">
           <ng-template ngFor let-u [ngForOf]="user | keyvalue: orderObject">
             <td *ngIf="u.key != 'address'">{{u.value}}</td>
             <td *ngIf="u.key === 'gender'">{{u.value | gender}}</td>

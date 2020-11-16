@@ -1,6 +1,59 @@
-<p>
-  template-driven works!
-</p>
 <div class="container">
-  <form ></form>
+  <form #f="ngForm" (ngSubmit)="onFormSubmit(f)" autocomplete="nope" novalidate>
+    <div class="form-group">
+      <label for="">Name</label>
+      <input type="text" [(ngModel)]="username" placeholder="Name" name="f1" #f1='ngModel'
+       required minlength="3">
+      <div *ngIf="f1.invalid && f.submitted">
+        <span class="error" *ngIf="f1.errors.required">Name is required</span>
+        <span class="error" *ngIf="f1.errors.minlength">
+          Minimum 3 characters required</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="email" [(ngModel)]="email" placeholder="Email" name="f2" #f2='ngModel'
+       required email autocomplete="nope">
+      <div *ngIf="f2.invalid && f.submitted">
+        <span class="error" *ngIf="f2.errors.required">Email is required</span>
+        <span class="error" *ngIf="f2.errors.email">invalid email id</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Phone</label>
+      <input type="text" [(ngModel)]="phone" placeholder="Phone" name="f3" #f3='ngModel' required pattern="\d{10}">
+      <div *ngIf="f3.invalid && f.submitted">
+        <span class="error" *ngIf="f3.errors.required">Phone is required</span>
+        <span class="error" *ngIf="f3.errors.pattern">must be 10 numbers</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" [(ngModel)]="password" autocomplete="nope" placeholder="Password" name="f4" #f4='ngModel' required
+        minlength="6">
+      <div *ngIf="f4.invalid && f.submitted">
+        <span class="error" *ngIf="f4.errors.required">Password is required</span>
+        <span class="error" *ngIf="f4.errors.minlength">must be 6 characters</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Gender</label>
+      <select placeholder="Select gender"  name="f5" [(ngModel)]="gender" #f5="ngModel" required>
+        <option value="" disabled selected="selected">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <div *ngIf="f5.invalid && f.submitted">
+        <span class="error" *ngIf="f5.errors.required">Gender is required</span>
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <label for="">Gender</label>
+      <input type="radio" [(ngModel)]="radio" name="radio" #radio="ngModel" required value="Male">
+      <input type="radio" [(ngModel)]="radio" name="radio" #radio="ngModel" required value="Female">
+    </div> -->
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
 </div>

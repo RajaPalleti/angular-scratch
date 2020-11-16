@@ -24,6 +24,11 @@ export class PipesPracticeComponent implements OnInit {
     ];
     public startIndex: number;
     public endIndex: number;
+    public min: number;
+    public max: number;
+    public isearch: any;
+    public orderValue: any;
+    public orderType: any;
     orderObject = (a: KeyValue<number, string>, b: KeyValue<number, string>): number => {
         return 0;
     }
@@ -37,6 +42,8 @@ export class PipesPracticeComponent implements OnInit {
         };
         this.startIndex = 0;
         this.endIndex = 1;
+        this.orderValue = 'joinDate';
+        this.orderType = 'asc';
     }
     previousUser() {
         // alert(this.startIndex + ',' + this.endIndex);
@@ -60,6 +67,13 @@ export class PipesPracticeComponent implements OnInit {
         } else {
             this.startIndex += 1;
             this.endIndex += 1;
+        }
+    }
+    orderChange() {
+        if (this.orderType === 'asc') {
+            this.orderType = 'dsc';
+        } else {
+            this.orderType = 'asc';
         }
     }
 }

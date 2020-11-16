@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="form">
+    <div style="margin: 20px;">
+      Name: <input type="text" [(ngModel)]="userName">
+    </div>
+    <div style="margin: 20px;">
+      Email: <input type="email" [(ngModel)]="userEmail">
+    </div>
+    <div style="margin: 20px;">
+      Salary: <input type="number" [(ngModel)]="userSalary">
+    </div>
+    <div style="margin: 20px;">
+      <button type="button" (click)="onSubmit()">Submit</button>
+    </div>
+  </div>
+  <h3>User2 list</h3>
+  <div >
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>Email</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let user of list;let ind = index;">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.salary}}</td>
+          <td>
+            <a class="fa fa-edit p-2" (click)="onEditUser(user)"></a>
+            <a class="fa fa-trash p-2" (click)="onDeleteUser(ind)"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

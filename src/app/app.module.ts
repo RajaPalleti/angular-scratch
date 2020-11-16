@@ -17,6 +17,12 @@ import { PipesPracticeComponent } from './pipes-practice/pipes-practice.componen
 import { ObserveComponent } from './observe/observe.component';
 import { GradePipe } from './pipes/grade.pipe';
 import { GenderPipe } from './pipes/gender.pipe';
+import { RangePipe } from './pipes/range.pipe';
+import { SearchPipe } from './pipes/search.pipe';
+import { OrderByPipe } from './pipes/order-by.pipe';
+import { User2Component } from './user2/user2.component';
+import { ReactiveComponent } from './reactive/reactive.component';
+import { TwoWayDataComponent } from './two-way-data/two-way-data.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +36,13 @@ import { GenderPipe } from './pipes/gender.pipe';
     PipesPracticeComponent,
     ObserveComponent,
     GradePipe,
-    GenderPipe
+    GenderPipe,
+    RangePipe,
+    SearchPipe,
+    OrderByPipe,
+    User2Component,
+    ReactiveComponent,
+    TwoWayDataComponent
   ],
   imports: [
     BrowserModule,

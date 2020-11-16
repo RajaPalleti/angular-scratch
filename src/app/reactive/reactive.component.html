@@ -1,0 +1,132 @@
+<!-- <div style="max-width: 500px;margin: 10px auto;">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="">Name</label>
+      <input type="text" formControlName="name">
+      <div class="error" *ngIf="userForm.invalid && submitted">
+        <span *ngIf="f.name.hasError('required')">Name is required</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="text" formControlName="email">
+      <div class="error" *ngIf="userForm.invalid && submitted">
+        <span *ngIf="f.email.hasError('required')">Email is required</span>
+        <span *ngIf="f.email.hasError('pattern')">Invalid email id</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Phone</label>
+      <input type="text" formControlName="phone">
+      <div class="error" *ngIf="userForm.invalid && submitted">
+        <span *ngIf="f.phone.hasError('required')">Phone is required</span>
+        <span *ngIf="f.phone.hasError('pattern')">phone number must be 10 numbers</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">City</label>
+      <select name="" id="" class="" formControlName="city">
+        <option value="hyderabad">hyderabad</option>
+        <option value="bengalur">bengalur</option>
+        <option value="mumbai">mumbai</option>
+      </select>
+      <div class="error" *ngIf="userForm.invalid && submitted">
+        <span *ngIf="f.city.hasError('required')">City is required</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Gender</label>
+      <div>
+        <label for="male">
+          <input id="male" type="radio" name="gender" formControlName="gender" value="Male"> Male
+        </label>
+        <label for="female">
+          <input id="female" type="radio" name="gender" formControlName="gender" value="Female"> Female
+        </label>
+      </div>
+      <div class="error" *ngIf="userForm.invalid && submitted">
+        <span *ngIf="f.gender.hasError('required')">Gender is required</span>
+      </div>
+    </div>
+    <div formGroupName="address">
+      <div class="form-group">
+        <label for="">Landmark</label>
+        <div>
+          <label>
+            <input type="text" name="landmark" formControlName="landmark" >
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Pincode</label>
+        <div>
+          <label>
+            <input type="text" name="pincode" formControlName="pincode" >
+          </label>
+        </div>
+      </div>
+    </div> -->
+<!-- <div class="form-group">
+      <label for="">Hobies</label>
+      <div>
+        <label for="cooking">
+          <input id="cooking" type="checkbox" name="cooking" formControlName="hobies" > Cooking
+        </label>
+        <label for="reading">
+          <input id="reading" type="checkbox" name="reading" formControlName="hobies" > Reading
+        </label>
+        <label for="playing">
+          <input id="playing" type="checkbox" name="playing" formControlName="hobies" > Playing
+        </label>
+      </div>
+    </div> -->
+<!-- <div class="form-group">
+      <label for="">Hobies</label>
+      <div>
+        <label for="hoby{{ind}}" *ngFor="let hby of hobiesList;let ind = index;">
+          <input id="hoby{{ind}}" (change)="myHobies(hby)" type="checkbox" name="cooking" formControlName="hobies" > {{hby}}
+        </label>
+      </div>
+    </div> -->
+
+<!-- <div class="form-group">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+</div> -->
+
+<form [formGroup]="userForm2" (ngSubmit)="onForm2Submit()" style="max-width: 300px;margin: 10px auto;">
+  <div class="form-group">
+    <label for="">User Name</label>
+    <input type="text" formControlName="username">
+    <div class="error" *ngIf="submitted2">
+      <span *ngIf="f2.username.hasError('required')">User Name is required</span>
+    </div>
+  </div>
+  <div formArrayName="skills">
+    <div *ngFor="let skill of f2.skills['controls']; let skillIndex=index">
+      <div [formGroupName]="skillIndex">
+        <div class="form-group">
+          <label for="">{{skillIndex}} Skill :</label>
+          <input type="text" formControlName="launguage">
+          <div class="error" *ngIf=" submitted2">
+            <span *ngIf="skill.get('launguage').hasError('required')">Launguage is required</span>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="">Exp:</label>
+          <input type="text" formControlName="exp">
+          <div class="error" *ngIf="submitted2">
+            <span *ngIf="skill.get('exp').hasError('required')">Experience is required</span>
+            </div>
+        </div>
+      </div>
+      <button class="btn btn-danger"  (click)="removeSkill(empIndex)">Remove Skill</button>
+    </div>
+    <button type="button" (click)="addEmployeeSkill(empIndex)">Add Skill</button>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">Submit</button>
+  </div>
+</form>

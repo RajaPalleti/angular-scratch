@@ -9,7 +9,8 @@ export const employees = [
             city: 'kodad',
             pincode: 508206
         },
-        grade: 1
+        grade: 1,
+        joinDate: '20/01/2020'
     },
     {
         id: '2',
@@ -21,7 +22,8 @@ export const employees = [
             city: 'kavali',
             pincode: 508800
         },
-        grade: 2
+        grade: 2,
+        joinDate: '20/01/2019'
     },
     {
         id: '3',
@@ -33,7 +35,8 @@ export const employees = [
             city: 'balaji nagar',
             pincode: 508900
         },
-        grade: 3
+        grade: 3,
+        joinDate: '20/01/2021'
     },
     {
         id: '4',
@@ -45,7 +48,8 @@ export const employees = [
             city: 'kdd',
             pincode: 508206
         },
-        grade: 4
+        grade: 4,
+        joinDate: '20/05/2020'
     },
     {
         id: '5',
@@ -57,7 +61,8 @@ export const employees = [
             city: 'kdd',
             pincode: 504207
         },
-        grade: null
+        grade: null,
+        joinDate: '20/01/2017'
     },
     {
         id: '6',
@@ -69,7 +74,8 @@ export const employees = [
             city: 'kdd',
             pincode: 504207
         },
-        grade: 5
+        grade: 5,
+        joinDate: '20/09/2020'
     },
     {
         id: '7',
@@ -81,7 +87,8 @@ export const employees = [
             city: 'hydernagar',
             pincode: 504544
         },
-        grade: 3
+        grade: 3,
+        joinDate: '20/01/2015'
     },
     {
         id: '8',
@@ -93,6 +100,7 @@ export const employees = [
             city: 'khammam',
             pincode: 504765
         },
-        grade: 2
+        grade: 2,
+        joinDate: '10/01/2020'
     }
 ];

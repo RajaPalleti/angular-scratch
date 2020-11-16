@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-events',
@@ -9,18 +10,23 @@ export class EventsComponent implements OnInit {
   public userName: string;
   public password: string;
   public message: string;
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
     this.message = '';
   }
   public login(): void {
-    if (this.userName === 'scott' && this.password === '123') {
-      this.message = 'Welcome  to angular training ' + this.userName;
+    this.message = this.loginService.onLogin(this.userName, this.password);
+    if (this.message === '') {
       this.userName = '';
       this.password = '';
-    } else {
-      this.message = 'Invalid username or password';
     }
+    // if (this.userName === 'scott' && this.password === '123') {
+    //   this.message = 'Welcome  to angular training ' + this.userName;
+    //   this.userName = '';
+    //   this.password = '';
+    // } else {
+    //   this.message = 'Invalid username or password';
+    // }
   }
 }
