@@ -1,0 +1,89 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>city</th>
+      <th>Salary</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let emp of employeeList;let i = index;">
+      <td>{{emp.name}}</td>
+      <td>{{emp.email}}</td>
+      <td>{{emp.phone}}</td>
+      <td>{{emp.city}}</td>
+      <td>{{emp.salary}}</td>
+      <td>
+        <a (click)="editEmp(emp)">Edit</a>
+        <a (click)="deleteEmp(emp)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="max-width: 500px;margin: 10px auto;">
+  <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="">Name</label>
+      <input type="text" formControlName="name">
+      <div class="error" *ngIf="empForm.invalid && submitted">
+        <span *ngIf="f.name.hasError('required')">Name is required</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="text" formControlName="email">
+      <div class="error" *ngIf="empForm.invalid && submitted">
+        <span *ngIf="f.email.hasError('required')">Email is required</span>
+        <span *ngIf="f.email.hasError('pattern')">Invalid email id</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Salary</label>
+      <input type="text" formControlName="salary">
+      <div class="error" *ngIf="empForm.invalid && submitted">
+        <span *ngIf="f.salary.hasError('required')">salary is required</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">Phone</label>
+      <input type="text" formControlName="phone">
+      <div class="error" *ngIf="empForm.invalid && submitted">
+        <span *ngIf="f.phone.hasError('required')">Phone is required</span>
+        <span *ngIf="f.phone.hasError('pattern')">phone number must be 10 numbers</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="">City</label>
+      <select name="" id="" class="" formControlName="city">
+        <option value="hyderabad">hyderabad</option>
+        <option value="bengalur">bengalur</option>
+        <option value="mumbai">mumbai</option>
+      </select>
+      <div class="error" *ngIf="empForm.invalid && submitted">
+        <span *ngIf="f.city.hasError('required')">City is required</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="">Gender</label>
+      <div>
+        <label for="male">
+          <input id="male" type="radio" name="gender" formControlName="gender" value="Male"> Male
+        </label>
+        <label for="female">
+          <input id="female" type="radio" name="gender" formControlName="gender" value="Female"> Female
+        </label>
+      </div>
+      <div class="error" *ngIf="empForm.invalid && submitted">
+        <span *ngIf="f.gender.hasError('required')">Gender is required</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+

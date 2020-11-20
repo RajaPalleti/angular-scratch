@@ -23,6 +23,8 @@ import { OrderByPipe } from './pipes/order-by.pipe';
 import { User2Component } from './user2/user2.component';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { TwoWayDataComponent } from './two-way-data/two-way-data.component';
+import { LocalServerComponent } from './local-server/local-server.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,8 @@ import { TwoWayDataComponent } from './two-way-data/two-way-data.component';
     OrderByPipe,
     User2Component,
     ReactiveComponent,
-    TwoWayDataComponent
+    TwoWayDataComponent,
+    LocalServerComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { TwoWayDataComponent } from './two-way-data/two-way-data.component';
     FormsModule,
     CommonModule,
     UserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

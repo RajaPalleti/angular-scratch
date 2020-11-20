@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BindingComponent } from './binding/binding.component';
 import { CrudComponent } from './crud/crud.component';
 import { EventsComponent } from './events/events.component';
+import { LocalServerComponent } from './local-server/local-server.component';
 import { ObserveComponent } from './observe/observe.component';
 import { PipesPracticeComponent } from './pipes-practice/pipes-practice.component';
 import { ReactiveComponent } from './reactive/reactive.component';
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'two-way-data',
     component: TwoWayDataComponent
+  },
+  {
+    path: 'json-server',
+    component: LocalServerComponent
   }
 ];
 
