@@ -18,43 +18,73 @@ const routes: Routes = [
   },
   {
     path: 'binding',
-    component: BindingComponent
+    component: BindingComponent,
+    data: {
+      breadcrumb: 'Binding'
+    }
   },
   {
     path: 'events',
-    component: EventsComponent
+    component: EventsComponent,
+    data: {
+      breadcrumb: 'Events'
+    }
   },
   {
     path: 'crud',
-    component: CrudComponent
+    component: CrudComponent,
+    data: {
+      breadcrumb: 'Crud'
+    }
   },
   {
     path: 'pipe',
-    component: PipesPracticeComponent
+    component: PipesPracticeComponent,
+    data: {
+      breadcrumb: 'Pipe'
+    }
   },
   {
     path: 'observe',
-    component: ObserveComponent
+    component: ObserveComponent,
+    data: {
+      breadcrumb: 'Observe'
+    }
   },
   {
     path: 'user2',
-    component: User2Component
+    component: User2Component,
+    data: {
+      breadcrumb: 'User 2'
+    }
   },
   {
     path: 'template-form',
-    component: TemplateDrivenComponent
+    component: TemplateDrivenComponent,
+    data: {
+      breadcrumb: 'Template form'
+    }
   },
   {
     path: 'reactive-form',
-    component: ReactiveComponent
+    component: ReactiveComponent,
+    data: {
+      breadcrumb: 'Reactive form'
+    }
   },
   {
     path: 'two-way-data',
-    component: TwoWayDataComponent
+    component: TwoWayDataComponent,
+    data: {
+      breadcrumb: 'Two way data'
+    }
   },
   {
     path: 'json-server',
-    component: LocalServerComponent
+    component: LocalServerComponent,
+    data: {
+      breadcrumb: 'Json server'
+    }
   }
 ];
 

@@ -23,8 +23,11 @@ export class LocalService {
   }
 
   updateEmp(formData): Observable<any> {
-    return this._http.put(this.url + '/' + formData.id , formData).pipe(map(data => data),
-    catchError(err => err));
+    return this._http.put(this.url + '/' + formData.id , formData)
+    .pipe(
+      map(data => data),
+      catchError(err => err)
+    );
   }
   deleteEmp(formData): Observable<any> {
     return this._http.delete(this.url + '/' + formData.id, formData).pipe(map(data => data),

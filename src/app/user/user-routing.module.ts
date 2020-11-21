@@ -6,11 +6,17 @@ const newuser = 'add';
 const routes: Routes = [
   {
     path: '',
-    component: UserListComponent
+    component: UserListComponent,
+    data: {
+      breadcrumb: 'User list'
+    }
   },
   {
-    path: newuser,
-    component: UserListComponent
+    path: 'user-list',
+    component: UserListComponent,
+    data: {
+      breadcrumb: 'User list'
+    }
   },
   {
     path: 'user/:id',
