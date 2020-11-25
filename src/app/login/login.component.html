@@ -4,12 +4,15 @@
       <label for="">User Name</label>
       <input type="text" class="form-control" formControlName="userName">
       <div *ngIf="loginForm.controls.userName.invalid && submitted">
-        <span *ngIf="userName.required">Username iss required</span>
+        <span class="error" *ngIf="loginForm.controls.userName.errors.required">Username is required</span>
       </div>
     </div>
     <div class="form-group">
       <label for="">Password</label>
       <input type="password" class="form-control" formControlName="password">
+      <div *ngIf="loginForm.controls.password.invalid && submitted">
+        <span class="error" *ngIf="loginForm.controls.password.errors.required">Password is required</span>
+      </div>
     </div>
     <div class="form-group">
       <button class="btn btn-primary" >Login</button>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
+  public submitted = false;
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -18,7 +19,11 @@ export class LoginComponent implements OnInit {
     });
   }
   onSubmit() {
+    this.submitted = true;
     console.log('this.loginForm.value', this.loginForm.value);
-    this.router.navigate(['user']);
+    if(this.loginForm.valid) {
+      this.router.navigate(['user']);
+      // this.toastr.success('Hello world!', 'Toastr fun!');
+    }
   }
 }
