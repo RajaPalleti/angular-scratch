@@ -28,7 +28,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,8 +60,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    NgbModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
