@@ -25,6 +25,8 @@ import { ReactiveComponent } from './reactive/reactive.component';
 import { TwoWayDataComponent } from './two-way-data/two-way-data.component';
 import { LocalServerComponent } from './local-server/local-server.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,9 @@ import { HttpClientModule } from '@angular/common/http';
     User2Component,
     ReactiveComponent,
     TwoWayDataComponent,
-    LocalServerComponent
+    LocalServerComponent,
+    LoginLayoutComponent,
+    UserLayoutComponent
   ],
   imports: [
     BrowserModule,

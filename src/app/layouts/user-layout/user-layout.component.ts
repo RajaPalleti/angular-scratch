@@ -3,12 +3,11 @@ import { ActivatedRoute, NavigationEnd, PRIMARY_OUTLET, Router } from '@angular/
 import { filter, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-user-layout',
+  templateUrl: './user-layout.component.html',
+  styleUrls: ['./user-layout.component.scss']
 })
-export class AppComponent implements OnInit {
-  public fontSizePx = 1;
+export class UserLayoutComponent implements OnInit {
   public menu = [];
   public breadcrumbs = [];
   title = 'angular-scratch';
@@ -42,6 +41,51 @@ export class AppComponent implements OnInit {
         });
         console.log('', this.breadcrumbs);
       });
-
+      this.menu = [
+        {
+          name: 'User list',
+          url: 'user-list'
+        },
+        {
+          name: 'Binding',
+          url: 'binding'
+        },
+        {
+          name: 'Events',
+          url: 'events'
+        },
+        {
+          name: 'Crud',
+          url: 'crud'
+        },
+        {
+          name: 'Pipe',
+          url: 'pipe'
+        },
+        {
+          name: 'Observe',
+          url: 'observe'
+        },
+        {
+          name: 'User2',
+          url: 'user2'
+        },
+        {
+          name: 'Template form',
+          url: 'template-form'
+        },
+        {
+          name: 'Reactive form',
+          url: 'reactive-form'
+        },
+        {
+          name: 'Two way data',
+          url: 'two-way-data'
+        },
+        {
+          name: 'Json server',
+          url: 'json-server'
+        }
+      ];
   }
 }
