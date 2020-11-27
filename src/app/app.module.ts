@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TwoWayDataComponent,
     LocalServerComponent,
     LoginLayoutComponent,
-    UserLayoutComponent
+    UserLayoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
