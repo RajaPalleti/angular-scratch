@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LocalService } from '../services/local.service';
 
 @Component({
   selector: 'app-register',
@@ -8,8 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
+  public submitted = false;
 
-  constructor() { }
+  constructor(private localService: LocalService, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -18,6 +21,17 @@ export class RegisterComponent implements OnInit {
     });
   }
   onSubmit() {
+    this.submitted = true;
     console.log('registerForm', this.registerForm.value);
+    if (this.registerForm.valid) {
+      this.localService.onRegister(this.registerForm.value).subscribe(res => {
+        if (res) {
+          this.router.navigate(['login']);
+        }
+      });
+    }
+  }
+  goBack() {
+    this.router.navigate(['/']);
   }
 }

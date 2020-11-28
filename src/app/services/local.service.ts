@@ -9,6 +9,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class LocalService {
   public url = 'http://localhost:3000/data';
+  public registerApiUrl = ' http://localhost:3000/registers';
   constructor(private _http: HttpClient) { }
 
   getEmpList(): Observable<any>  {
@@ -32,5 +33,11 @@ export class LocalService {
   deleteEmp(formData): Observable<any> {
     return this._http.delete(this.url + '/' + formData.id, formData).pipe(map(data => data),
     catchError(err => err));
+  }
+  public onRegister(registerData: any): Observable<any> {
+    return this._http.post(this.registerApiUrl, registerData).pipe(
+      map(data => data),
+      catchError(err => err)
+    );
   }
 }

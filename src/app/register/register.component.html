@@ -3,10 +3,20 @@
     <div class="form-group">
       <label for="">Name</label>
       <input type="text" formControlName="name">
+      <div class="error" *ngIf="registerForm.controls.name.invalid && submitted">
+        <span *ngIf="registerForm.controls.name.errors.required">Name is required</span>
+      </div>
     </div>
     <div class="form-group">
       <label for="">Password</label>
       <input type="password" formControlName="password">
+      <div class="error" *ngIf="registerForm.controls.password.invalid && submitted">
+        <span *ngIf="registerForm.controls.password.errors.required">password is required</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Register</button>
+      <button class="btn btn-secondary" type="button" (click)="goBack()">Cancel</button>
     </div>
   </form>
 </div>

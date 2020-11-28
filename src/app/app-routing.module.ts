@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ObserveComponent } from './observe/observe.component';
 import { PipesPracticeComponent } from './pipes-practice/pipes-practice.component';
 import { ReactiveComponent } from './reactive/reactive.component';
+import { RegisterComponent } from './register/register.component';
 import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 import { TwoWayDataComponent } from './two-way-data/two-way-data.component';
 import { User2Component } from './user2/user2.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginLayoutComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'user',
