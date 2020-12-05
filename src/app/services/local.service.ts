@@ -40,4 +40,9 @@ export class LocalService {
       catchError(err => err)
     );
   }
+  registeredUsers(): Observable<any> {
+    return this._http.get(this.registerApiUrl).pipe(
+      map(data => data),
+      catchError(err => err));
+  }
 }
