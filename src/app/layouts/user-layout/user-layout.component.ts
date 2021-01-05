@@ -88,4 +88,8 @@ export class UserLayoutComponent implements OnInit {
         }
       ];
   }
+  logout(){
+    localStorage.removeItem('userDetails');
+    this.router.navigate(['login']);
+  }
 }
