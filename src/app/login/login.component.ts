@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
             console.log('element.password', element.password);
             console.log('this.loginForm.value.userName', this.loginForm.value.userName);
             if (element.name === this.loginForm.value.userName && element.password === Number(this.loginForm.value.password)) {
-
+              localStorage.setItem('userDetails', JSON.stringify({'userName':this.loginForm.value.userName,'password': Number(this.loginForm.value.password)}));
               this.router.navigate(['user']);
             }
           });
