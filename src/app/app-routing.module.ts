@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { BindingComponent } from './binding/binding.component';
 import { CrudComponent } from './crud/crud.component';
 import { EventsComponent } from './events/events.component';
@@ -8,6 +9,7 @@ import { UserLayoutComponent } from './layouts/user-layout/user-layout.component
 import { LocalServerComponent } from './local-server/local-server.component';
 import { LoginComponent } from './login/login.component';
 import { ObserveComponent } from './observe/observe.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PipesPracticeComponent } from './pipes-practice/pipes-practice.component';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { RegisterComponent } from './register/register.component';
@@ -30,6 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'user',
+    canActivate: [AuthGuard],
     component: UserLayoutComponent,
     children: [
       {
@@ -188,7 +191,10 @@ const routes: Routes = [
       // }
     // ]
   },
-
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
 ];
 
 @NgModule({

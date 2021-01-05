@@ -29,6 +29,7 @@ import { LoginLayoutComponent } from './layouts/login-layout/login-layout.compon
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { RegisterComponent } from './register/register.component';
     LocalServerComponent,
     LoginLayoutComponent,
     UserLayoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
