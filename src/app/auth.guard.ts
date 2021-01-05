@@ -11,9 +11,9 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      let credentials = JSON.parse(localStorage.getItem('userDetails'));
+      const credentials = JSON.parse(localStorage.getItem('userDetails'));
       console.log('credentials', credentials);
-      if(credentials['userName'] == null && credentials.password == null) {
+      if (credentials == null) {
         this.router.navigate(['login']);
         return false;
       } else {
