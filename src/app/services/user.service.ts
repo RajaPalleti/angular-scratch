@@ -52,5 +52,11 @@ export class UserService {
       catchError(this.handleError)
     );
   }
-
+  public getUserDetails(userId: number): Observable<any> {
+    const url = `${this.apiUrl}/${userId}`;
+    return this._http.get(url, this.httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
 }
