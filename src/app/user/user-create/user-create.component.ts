@@ -13,6 +13,7 @@ export class UserCreateComponent implements OnInit {
   @Output() ngFormSubmit: EventEmitter<any> = new EventEmitter();
   @Output() ngFormCancel: EventEmitter<any> = new EventEmitter();
   public userForm: FormGroup;
+  public errorMsg = '';
   constructor(private _userService: UserService,
     private newUserService: NewUserService) { }
 
@@ -40,9 +41,12 @@ export class UserCreateComponent implements OnInit {
         this.userForm.reset();
       }
     });
-    this.newUserService.newUser(this.userForm.value).subscribe(data => {
+    this.newUserService.newUser(this.userForm.value).subscribe(
+      data => {
       console.log('data', data);
-    });
+    },
+    error => this.errorMsg = error.statusText
+    );
   }
   onCancel(): void {
     this.ngFormCancel.emit();

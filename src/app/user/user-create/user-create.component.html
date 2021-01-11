@@ -20,6 +20,7 @@
       <button>Submit</button>
     </div>
   </form> -->
+  <div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
   <form [formGroup] = "userForm" (ngSubmit)="onSubmit(userForm)">
     <div class="row">
       <div class="form-group col-6">
