@@ -30,6 +30,7 @@ import { UserLayoutComponent } from './layouts/user-layout/user-layout.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FacultyModule } from './faculty/faculty.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     UserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FacultyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

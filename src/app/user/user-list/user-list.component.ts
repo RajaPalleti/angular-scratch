@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { employees } from '../../users';
 import { Employee } from '../../models/itest';
 import {usersList } from '../../users-list';
+import { NewUserService } from 'src/app/services/new-user.service';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -29,7 +30,8 @@ export class UserListComponent implements OnInit {
 
   constructor(private _userService: UserService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private newUserService: NewUserService) {
  }
 
   ngOnInit() {
@@ -55,10 +57,13 @@ export class UserListComponent implements OnInit {
   }
   public addUser() {
     this.showForm = true;
-    this.router.navigate(['add'], {relativeTo: this.activatedRoute.parent});
+    this.router.navigate(['user/add'], {relativeTo: this.activatedRoute});
   }
   onSubmit(event) {
     console.log('event', event);
+    // this.newUserService.newUser(event).subscribe(data => {
+    //   console.log('data', data);
+    // });
     if (event) {
       this.showForm = false;
       this.isCreate = false;

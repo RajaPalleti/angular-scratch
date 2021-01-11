@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { NewUserService } from 'src/app/services/new-user.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class UserCreateComponent implements OnInit {
   @Output() ngFormSubmit: EventEmitter<any> = new EventEmitter();
   @Output() ngFormCancel: EventEmitter<any> = new EventEmitter();
   public userForm: FormGroup;
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService,
+    private newUserService: NewUserService) { }
 
   ngOnInit() {
     this.userForm = new FormGroup({
@@ -37,6 +39,9 @@ export class UserCreateComponent implements OnInit {
         this.ngFormSubmit.emit(true);
         this.userForm.reset();
       }
+    });
+    this.newUserService.newUser(this.userForm.value).subscribe(data => {
+      console.log('data', data);
     });
   }
   onCancel(): void {
